@@ -1,5 +1,6 @@
 package com.example.myquizmy.Game;
 
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -11,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.myquizmy.MainActivity;
 import com.example.myquizmy.QuizFragment;
 import com.example.myquizmy.R;
 
@@ -56,21 +58,24 @@ public class ResultFragment extends Fragment {
         }
 
         exitButton.setOnClickListener(v -> {
-            if (getActivity() != null) {
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+            Intent intent=new Intent(getActivity(), MainActivity.class);
+            startActivity(intent);
 
-                while (fragmentManager.getBackStackEntryCount() > 0) {
-                    fragmentManager.popBackStackImmediate();
-                }
+//            if (getActivity() != null) {
+//                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+//
+//                while (fragmentManager.getBackStackEntryCount() > 0) {
+//                    fragmentManager.popBackStackImmediate();
+//                }
 
-                FragmentTransaction transaction = fragmentManager.beginTransaction();
-                transaction.replace(R.id.container, new QuizFragment());
-                transaction.addToBackStack(null);
-                transaction.commit();
-
-
-                getActivity().finish();
-            }
+//                FragmentTransaction transaction = fragmentManager.beginTransaction();
+//                transaction.replace(R.id.container, new QuizFragment());
+//                transaction.addToBackStack(null);
+//                transaction.commit();
+//
+//
+//                getActivity().finish();
+           // }
         });
 
         return view;
