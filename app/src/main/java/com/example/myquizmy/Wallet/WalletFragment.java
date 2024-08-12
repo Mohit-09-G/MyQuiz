@@ -88,6 +88,14 @@ public class WalletFragment extends Fragment implements View.OnClickListener {
             return;
         }
         else {
+            String userPhone = sessionManager.getUserDetails().get("userPhone");
+            UserProfile userProfile = testDatabase.getUserDetails(userPhone);
+            double addedAmount = Double.parseDouble(editTextAmount.getText().toString().replace("Rs. ", ""));
+            double newBalance = userProfile.getBankBalance() + addedAmount;
+            testDatabase.updateBankBalance(userPhone, newBalance);
+            updateBalanceText();
+
+
             DateFormat df = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
             String date = df.format(Calendar.getInstance().getTime());
             testDatabase.insertTransaction(user_phone,"Add","UPI",date,amountString,getRandomKey(4));
