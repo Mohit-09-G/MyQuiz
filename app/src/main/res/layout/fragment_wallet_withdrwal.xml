@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Withdrawl_Wallet_Fragment">
+
+    <LinearLayout
+        android:id="@+id/widralLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical">
+
+
+        <EditText
+            android:id="@+id/editTextWithdrawalAmount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Enter amount"
+            android:inputType="numberDecimal"
+            android:padding="10dp"
+            android:background="@android:drawable/edit_text"
+            android:layout_marginEnd="8dp"/>
+
+
+        <Button
+            android:id="@+id/buttonWithdraw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Withdraw"
+            android:padding="12dp"
+            android:backgroundTint="@color/more_dark_green"
+            android:textColor="@android:color/white"/>
+
+    </LinearLayout>
+
+</FrameLayout>

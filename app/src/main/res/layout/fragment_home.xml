@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_home"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeFragment" >
+
+
+        <com.codebyashish.autoimageslider.AutoImageSlider
+            android:id="@+id/slider"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            app:ais_auto_sliding="true"
+            app:ais_corner_radius="40"
+            app:ais_dots_visible="false"
+            app:ais_indicator_align="@string/centre"
+            app:ais_placeholder="@drawable/placeholder_default_loading"
+            app:ais_time_interval="5000"
+            app:ais_title_background="@drawable/text_background" />
+
+
+
+
+
+    <TextView
+        android:id="@+id/livetxt"
+        android:padding="5dp"
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Upcoming Live Quizzes"
+        android:layout_below="@id/slider"
+        android:textSize="18dp"
+        android:textStyle="bold" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/home_recycleview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/livetxt"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp" />
+
+
+
+</RelativeLayout>

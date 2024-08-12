@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:gravity="center_horizontal"
+    android:layout_margin="0dp"
+    android:background="@color/more_dark_green"
+    android:layout_height="match_parent"
+    tools:context=".Login.SplashScreen">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/mainlogo" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/logo"
+        android:gravity="center_horizontal"
+        android:text="My Quiz"
+        android:textColor="@color/white"
+        android:textSize="22sp" />
+    <TextView
+        android:id="@+id/Vname"
+        android:textSize="15sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="Version 1.0.0"
+        android:textColor="@color/white"
+        android:layout_below="@id/name"/>
+</RelativeLayout>

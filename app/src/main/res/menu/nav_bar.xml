@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_livegames"
+            android:title="Live Games"
+            android:icon="@drawable/games" />
+
+        <item
+            android:id="@+id/nav_addmoney"
+            android:title="Add Money"
+            android:icon="@drawable/money" />
+
+        <item
+            android:id="@+id/nav_wallet"
+            android:title="Wallet"
+            android:icon="@drawable/wallet" />
+
+        <item
+            android:id="@+id/nav_widraw"
+            android:title="Withdraw"
+            android:icon="@drawable/withdraw" />
+
+        <item
+            android:id="@+id/nav_notifications"
+            android:title="Notifications"
+            android:icon="@drawable/noti" />
+
+        <item
+            android:id="@+id/nav_play"
+            android:title="How to Play"
+            android:icon="@drawable/play" />
+
+        <item
+            android:id="@+id/nav_support"
+            android:title="Support"
+            android:icon="@drawable/support" />
+
+        <item
+            android:id="@+id/nav_terms"
+            android:title="Terms And Conditions"
+            android:icon="@drawable/terms"/>
+        <item
+            android:id="@+id/nav_privacy"
+            android:title="Privacy Policy"
+            android:icon="@drawable/policy"/>
+        <item
+            android:id="@+id/refer"
+            android:title="Refer And Earn"
+            android:icon="@drawable/referal"/>
+
+    </group>
+
+</menu>

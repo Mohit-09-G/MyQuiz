@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Game.ResultFragment">
+
+    <RelativeLayout
+        android:id="@+id/result_one"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/resulttxt_liveimage"
+            android:layout_width="200dp"
+            android:layout_height="150dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:clickable="true"
+            android:src="@drawable/slide2" />
+
+        <TextView
+            android:id="@+id/resulttxt_txt1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/resulttxt_liveimage"
+            android:layout_marginTop="10dp"
+            android:text="Quiz 1"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/resulttxt_dateTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/resulttxt_txt1"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/button_background"
+            android:text="06/08/2024 02:45pm"
+            android:textColor="@color/red"
+            android:textSize="10sp" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/resulttxt_liveimage"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="10dp">
+
+            <TextView
+                android:id="@+id/resulttxt_txt2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Joining fees"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_marginTop="10dp" />
+
+            <TextView
+                android:id="@+id/resulttxt_txt3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/resulttxt_txt2"
+                android:layout_marginTop="5dp"
+                android:text="Rs.10/-"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/resulttxt_txt4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/resulttxt_txt3"
+                android:layout_marginTop="5dp"
+                android:text="Max Entry"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/resulttxt_txt5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/resulttxt_txt4"
+                android:layout_marginTop="5dp"
+                android:text="1 People"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/resulttxt_txt8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/resulttxt_txt5"
+                android:layout_marginTop="5dp"
+                android:text="Prize Win"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/resulttxt_txt9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/resulttxt_txt8"
+                android:text="Rs.0/-"
+                android:textStyle="bold"
+                android:textColor="@color/red" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/result_two"
+            android:layout_below="@+id/result_one"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:padding="10dp"
+            android:elevation="4dp"
+            app:cardCornerRadius="10dp"
+            android:layout_alignParentStart="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingBottom="8dp">
+
+                    <TextView
+                        android:padding="10dp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Total Questions"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:padding="10dp"
+                        android:id="@+id/Total"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="0"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingBottom="8dp">
+
+                    <TextView
+                        android:padding="10dp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Wrong Answer"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:padding="10dp"
+                        android:id="@+id/wrong"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="0"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:padding="10dp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Right Answer"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:padding="10dp"
+                        android:id="@+id/right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="0"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+
+    <Button
+        android:id="@+id/exit"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/result_two"
+        android:layout_centerInParent="true"
+        android:backgroundTint="@color/more_dark_green"
+        android:text="Exit" />
+</RelativeLayout>

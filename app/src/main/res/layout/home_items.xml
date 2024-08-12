@@ -1,0 +1,122 @@
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:clickable="true"
+    android:padding="5dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/liveimage"
+            android:layout_width="200dp"
+            android:layout_height="150dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:clickable="true"
+            android:src="@drawable/slide2" />
+
+        <TextView
+            android:id="@+id/txt1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/liveimage"
+            android:text="Quiz 1"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:padding="5dp"
+            android:id="@+id/dateTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt1"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/button_background"
+            android:text="06/08/2024 02:45pm"
+            android:textColor="@color/red"
+            android:textSize="10dp" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@id/liveimage"
+            android:layout_marginStart="10dp">
+
+            <TextView
+                android:id="@+id/txt2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Joining fees"
+                android:layout_alignParentTop="true" />
+
+            <TextView
+                android:id="@+id/txt3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txt2"
+                android:text="Rs.10/-"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txt4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txt3"
+                android:text="Max Entry" />
+
+            <TextView
+                android:id="@+id/txt5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txt4"
+                android:text="1 People"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txt6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txt5"
+                android:text="Available Spots" />
+
+            <TextView
+                android:id="@+id/txt7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txt6"
+                android:text="0"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txt8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txt7"
+                android:text="Prize Pool" />
+
+            <TextView
+                android:id="@+id/txt9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txt8"
+                android:text="Rs.8/-"
+                android:textStyle="bold"
+                android:textColor="@color/red" />
+
+            <Button
+                android:id="@+id/viewMoreButton"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_below="@id/txt9"
+                android:layout_marginTop="8dp"
+                android:backgroundTint="@color/more_dark_green"
+                android:text="View More"
+                android:textColor="@color/white" />
+        </RelativeLayout>
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

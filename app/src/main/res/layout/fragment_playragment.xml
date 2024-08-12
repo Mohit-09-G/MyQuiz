@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/more_dark_green"
+    tools:context=".Playragment">
+
+
+    <TextView
+        android:id="@+id/heading_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center_horizontal"
+        android:padding="16dp"
+        android:text="Quiz Challenge Overview"
+        android:textSize="24sp"
+        android:textColor="@color/white"
+        android:textStyle="bold"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="80dp"
+        android:padding="16dp"
+        android:text="Welcome to the Ultimate Quiz Challenge! To get started, select a quiz and hit the 'Play' button. Pay a small entry fee to participate and showcase your skills. If you answer correctly and win, your prize money will be automatically transferred to your wallet—no additional steps required! Just enjoy the quiz, and let the rewards flow directly into your account. Keep playing and winning to see your wallet grow!"
+        android:textColor="@color/white"/>
+
+</FrameLayout>

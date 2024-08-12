@@ -1,0 +1,301 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:clickable="true"
+    android:padding="5dp">
+
+    <RelativeLayout
+        android:id="@+id/rev1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/liveimage"
+            android:layout_width="200dp"
+            android:layout_height="150dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:clickable="true"
+            android:src="@drawable/slide2" />
+
+        <TextView
+            android:id="@+id/txt1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/liveimage"
+            android:text="Quiz 1"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:padding="5dp"
+            android:id="@+id/dateTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt1"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/button_background"
+            android:text="06/08/2024 02:45pm"
+            android:textColor="@color/red"
+            android:textSize="10dp" />
+
+        <Button
+            android:id="@+id/joinButton"
+            android:layout_marginTop="20dp"
+            android:layout_width="140dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/dateTxt"
+            android:text="Join Now">
+        </Button>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@id/liveimage"
+            android:layout_marginStart="10dp">
+
+            <TextView
+                android:id="@+id/txt2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Joining fees"
+                android:layout_alignParentTop="true" />
+
+            <TextView
+                android:id="@+id/txt3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txt2"
+                android:text="Rs.10/-"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txt4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txt3"
+                android:text="Max Entry" />
+
+            <TextView
+                android:id="@+id/txt5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txt4"
+                android:text="1 People"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txt6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txt5"
+                android:text="Available Spots" />
+
+            <TextView
+                android:id="@+id/txt7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txt6"
+                android:text="0"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txt8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txt7"
+                android:text="Prize Pool" />
+
+            <TextView
+                android:id="@+id/txt9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txt8"
+                android:text="Rs.8/-"
+                android:textStyle="bold"
+                android:textColor="@color/red" />
+
+            <Button
+                android:id="@+id/viewMoreButton"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_below="@id/txt9"
+                android:layout_marginTop="8dp"
+                android:text="8 days left"
+                android:backgroundTint="@color/more_dark_green"
+                android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/joinNowButton"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_below="@id/viewMoreButton"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/white_button"
+                android:text="Join Now"
+                android:textColor="@color/more_dark_green"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/playNowButton"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_below="@id/joinNowButton"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/white_button"
+                android:text="Play Now"
+                android:textColor="@color/more_dark_green"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/gameRulesText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/playNowButton"
+                android:layout_marginTop="8dp"
+                android:text="Game Rules"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/prizeDistributionText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/gameRulesText"
+                android:layout_marginTop="8dp"
+                android:text="Prize Distribution"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/maxFillText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/prizeDistributionText"
+                android:layout_marginTop="8dp"
+                android:text="Max Fill"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/currentFillText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/maxFillText"
+                android:layout_marginTop="8dp"
+                android:text="Current Fill"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/rankText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/currentFillText"
+                android:layout_marginTop="8dp"
+                android:text="Rank Distribution"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/rankDistributionText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rankText"
+                android:layout_marginTop="8dp"
+                android:text="1: Rs.2/-"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_below="@+id/rev1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/txt12"
+        android:layout_below="@id/rev1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Games Rules"
+        android:textSize="18dp"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/txt13"
+        android:layout_below="@id/rev1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Games Rules"
+        android:textSize="18dp"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/txt14"
+        android:padding="5dp"
+        android:layout_below="@id/txt13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Testing"
+        android:textSize="15dp" />
+    <TextView
+        android:id="@+id/txt15"
+        android:layout_below="@id/txt14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Price Distribution"
+        android:textSize="18dp"
+        android:textStyle="bold" />
+     <LinearLayout
+         android:id="@+id/twobutton"
+         android:layout_below="@id/txt15"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:orientation="horizontal"
+         android:gravity="center_horizontal">
+
+         <Button
+             android:id="@+id/maxfill"
+             android:layout_width="120dp"
+             android:layout_height="40dp"
+             android:text="Max Fill"
+             android:backgroundTint="@color/black"
+             />
+         <Button
+             android:id="@+id/currentfill"
+             android:layout_width="120dp"
+             android:layout_height="40dp"
+             android:layout_marginLeft="10dp"
+             android:text="Current Fill"
+             android:backgroundTint="@color/black"
+             />
+     </LinearLayout>
+    <RelativeLayout
+        android:layout_below="@+id/twobutton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"/>
+
+
+    </RelativeLayout>
+
+
+
+
+
+</RelativeLayout>
