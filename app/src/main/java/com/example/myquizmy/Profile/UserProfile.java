@@ -139,9 +139,8 @@ public class UserProfile {
     public void setImageBytes(byte[] image) {
         this.image = image;
     }
-
     public Bitmap getImage() {
-        if (image != null && image.length > 0) {
+        if (image!=null) {
             return BitmapFactory.decodeByteArray(image, 0, image.length);
         } else {
             return null;

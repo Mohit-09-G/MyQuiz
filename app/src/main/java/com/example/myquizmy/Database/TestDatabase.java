@@ -212,18 +212,33 @@ public class TestDatabase extends SQLiteOpenHelper {
         return userProfile;
     }
 
+    public boolean updateImage(String phone,Bitmap bitmapImage) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
 
-    public boolean updateUserProfile(String phone, String name, String email, String age, String address, Bitmap bitmapImage) {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmapImage.compress(Bitmap.CompressFormat.PNG, 100, baos);
+        byte[] imageBytes = baos.toByteArray();
+        values.put(COL_IMAGE, imageBytes);
+        int rowsAffected = db.update(TABLE_NAME, values, COL_PHONE + " = ?", new String[]{phone});
+        //   db.close();
+        //return rowsAffected > 0;
+        long result1= db.insert(TABLE_NAME, null, values);
+
+        db.close();
+
+
+        return result1 != -1;
+    }
+
+    public boolean updateUserProfile(String phone, String name, String email, String age, String address) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COL_NAME, name);
         values.put(COL_EMAIL, email);
         values.put(COL_AGE, age);
         values.put(COL_ADDRESS, address);
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        bitmapImage.compress(Bitmap.CompressFormat.PNG, 100, baos);
-        byte[] imageBytes = baos.toByteArray();
-        values.put(COL_IMAGE, imageBytes);
+
         int rowsAffected = db.update(TABLE_NAME, values, COL_PHONE + " = ?", new String[]{phone});
         //   db.close();
         //return rowsAffected > 0;
@@ -281,7 +296,8 @@ public class TestDatabase extends SQLiteOpenHelper {
 
 
     public boolean insertLoginData(String name, String phone, String password, String age, String email, String address,
-                                   String bank, String acc, String ifsc, String fac,String whastpp,String upino,String upiid,String referral,String type, String amount, String date) {
+                                   String bank, String acc, String ifsc, String fac,String whastpp,String upino,String upiid,
+                                   String referral,String type, String amount, String date,String image) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_NAME, name);
@@ -298,6 +314,11 @@ public class TestDatabase extends SQLiteOpenHelper {
         contentValues.put(COL_UPI_ID, upiid);
         contentValues.put(COL_UPI_NO, upino);
         contentValues.put(COL_REFERRAL_CODE, referral);
+
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+      //  bitmapImage.compress(Bitmap.CompressFormat.PNG, 100, baos);
+        byte[] imageBytes =null;
+        contentValues.put(COL_IMAGE, imageBytes);
         contentValues.put(COL_BANK_BALANCE, 0.0);
         long result = db.insert(TABLE_NAME, null, contentValues);
         db.close();

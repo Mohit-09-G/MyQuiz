@@ -61,7 +61,7 @@ public class Sign_up_Activity extends AppCompatActivity {
             }
 
             // Insert data into database
-            boolean isInserted = databaseHelper.insertLoginData(name, phone, password, "", "", "", "", "", "", "", "", "", "", "","","","");
+            boolean isInserted = databaseHelper.insertLoginData(name, phone, password, "", "", "", "","","", "", "", "", "", "", "","","",null);
             if (isInserted) {
                 Toast.makeText(Sign_up_Activity.this, "Registration successful", Toast.LENGTH_SHORT).show();
                 clearFields(); // Clear input fields

@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -161,6 +162,7 @@ public class ProfileFragment extends Fragment {
                             try {
                                 bitmapImage = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), uri);
                                 uploadImage.setImageBitmap(bitmapImage);
+                                testDatabase.updateImage(user_phone,bitmapImage);
                             } catch (IOException e) {
                                 Toast.makeText(getActivity(), "Failed to load image", Toast.LENGTH_SHORT).show();
                             }
@@ -213,13 +215,13 @@ public class ProfileFragment extends Fragment {
             Toast.makeText(getActivity(), "Invalid email format", Toast.LENGTH_SHORT).show();
             return;
         }
+//
+//        if (bitmapImage == null) {
+//            Toast.makeText(getActivity(), "Please upload a profile image", Toast.LENGTH_SHORT).show();
+//            return;
+//        }
 
-        if (bitmapImage == null) {
-            Toast.makeText(getActivity(), "Please upload a profile image", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        boolean isInserted = testDatabase.updateUserProfile(user_phone, name, email, age, address, bitmapImage);
+        boolean isInserted = testDatabase.updateUserProfile(user_phone, name, email, age, address);
         if (isInserted) {
             Toast.makeText(getActivity(), "Profile data saved successfully", Toast.LENGTH_SHORT).show();
         } else {
@@ -363,9 +365,23 @@ public class ProfileFragment extends Fragment {
             editUpiId.setText(userDetails.getUpiid());
             editUpiNumber.setText(userDetails.getUpino());
             referralEdit.setText(userDetails.getPhone());
-            uploadImage.setImageBitmap(userDetails.getImage());
-
+            Log.d("imagesss", "loadUserData: "+userDetails.getImage());
+            if((userDetails.getImage())==null){
+                uploadImage.setImageDrawable(getActivity().getDrawable(R.drawable.name));
+            }
+            else {
+                uploadImage.setImageBitmap(userDetails.getImage());
+            }
         }
+    }
+    public String checkNull(String s) {
+        String str = "";
+        if (s == null || s.isEmpty ( ) || s.equalsIgnoreCase ("null")) {
+            str = "";
+        } else {
+            str = s;
+        }
+        return str;
     }
     private void loadGameDetails(View view) {
 
