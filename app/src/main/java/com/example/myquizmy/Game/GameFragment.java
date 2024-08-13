@@ -129,7 +129,7 @@ public class GameFragment extends Fragment implements View.OnClickListener {
     private void saveGameDetails(int correctAnswers, double moneyWon) {
         String gameName = "Quiz Game";
         double moneySpent = 10.0;
-        String date = "12/08/2024";
+        String date = java.text.DateFormat.getDateTimeInstance().format(new java.util.Date());
         String ids = "UniqueGameId";
         boolean isInserted = testDatabase.insertGameDetails(user_phone, gameName, moneySpent, moneyWon,date, ids);
         if (!isInserted) {

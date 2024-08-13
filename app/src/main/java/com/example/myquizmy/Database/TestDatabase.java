@@ -51,7 +51,7 @@ public class TestDatabase extends SQLiteOpenHelper {
     // New columns for GameDetails
     private static final String COL_GAME_NAME = "gameName";
     private static final String COL_MONEY_SPENT = "moneySpent";
-    private static final String COL_MONEY_WON = "money_won";
+    private static final String COL_MONEY_WON = "moneywon";
 
     public TestDatabase(@Nullable Context context) {
         super(context, DATABASE_NAME, null, 4); // Incremented schema version
