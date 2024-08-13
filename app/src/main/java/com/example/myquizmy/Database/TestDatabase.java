@@ -18,10 +18,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TestDatabase extends SQLiteOpenHelper {
-    public static final String DATABASE_NAME = "Sign.db2";
+    public static final String DATABASE_NAME = "Sign.db3";
     private static final String TABLE_NAME = "UnifiedData";
     private static final String TABLE_NAME2 = "table2";
-    private static final String TABLE_NAME3 = "GameDetailss";
+    private static final String TABLE_NAME3 = "GameDetailsss";
 
     private static final String COL_PHONE = "phone";
     private static final String COL_NAME = "name";
@@ -95,7 +95,7 @@ public class TestDatabase extends SQLiteOpenHelper {
                 COL_PHONE + " TEXT, " +
                 COL_GAME_NAME + " TEXT, " +
                 COL_MONEY_SPENT + " TEXT, " +
-                COL_MONEY_WON  +"TEXT,"+
+                COL_MONEY_WON  +" TEXT, "+
                 COLUMN_DATE + " TEXT, " +
                 COLUMN_IDS + " TEXT)";
 
@@ -111,7 +111,7 @@ public class TestDatabase extends SQLiteOpenHelper {
         contentValues.put(COL_PHONE, phone);
         contentValues.put(COL_GAME_NAME, gameName);
         contentValues.put(COL_MONEY_SPENT, moneySpent);
-       // contentValues.put(COL_MONEY_WON, moneyWon);
+        contentValues.put(COL_MONEY_WON, moneyWon);
         contentValues.put(COLUMN_DATE, date);
         contentValues.put(COLUMN_IDS, ids);
         Log.d("nbajjjj", "insertGameDetails: "+moneySpent);
@@ -166,7 +166,22 @@ public class TestDatabase extends SQLiteOpenHelper {
 
         onCreate(db);
     }
+    public Double getuSERTotalWonSpent(String phone) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        // Cursor cursor = db.rawQuery("SELECT SUM(" + COL_MONEY_SPENT + ") FROM " + TABLE_NAME3 + " WHERE " + COL_PHONE + "=?", new String[]{phone});
+        Cursor cursor = db.query(TABLE_NAME3,
+                new String[]{COL_MONEY_WON},
+                COL_PHONE + " = ?", new String[]{phone}, null, null, null);
+        Double totalMoneySpent = 0.00;
+        if (cursor != null && cursor.moveToFirst()) {
+            // if (cursor.moveToFirst()) {
+            totalMoneySpent=Double.parseDouble(cursor.getString(cursor.getColumnIndexOrThrow(COL_MONEY_WON)));
+            Log.d("khguytgyuk", "getuSERTotalMoneySpent: "+String.valueOf(totalMoneySpent));
 
+            //}
+            cursor.close();
+
+        }return totalMoneySpent;}
     public Double getuSERTotalMoneySpent(String phone) {
         SQLiteDatabase db = this.getReadableDatabase();
        // Cursor cursor = db.rawQuery("SELECT SUM(" + COL_MONEY_SPENT + ") FROM " + TABLE_NAME3 + " WHERE " + COL_PHONE + "=?", new String[]{phone});

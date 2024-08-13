@@ -386,6 +386,7 @@ public class ProfileFragment extends Fragment {
     public void loadGameDetails(View view) {
 
 //        double totalMoneyWon = testDatabase.getTotalMoneyWon(user_phone);
+        double totalMoneyWon = testDatabase.getuSERTotalWonSpent(user_phone);
         double totalMoneySpent = testDatabase.getuSERTotalMoneySpent(user_phone);
         int totalGamesPlayed = testDatabase.getTotalGamesPlayed(user_phone);
 
@@ -395,7 +396,7 @@ public class ProfileFragment extends Fragment {
         TextView textTotalGamePlay = view.findViewById(R.id.textTotalGamePlayValue);
         Log.d("khguytgyuk", "getuSERTotalMoneySpent: "+String.valueOf(totalMoneySpent));
 
-        //textTotalMoneyWon.setText(" Rs " + totalMoneyWon);
+        textTotalMoneyWon.setText(" Rs " + String.valueOf(totalMoneyWon));
         textTotalMoneySpent.setText("Rs " + String.valueOf(totalMoneySpent));
         textTotalGamePlay.setText("" + totalGamesPlayed);
     }

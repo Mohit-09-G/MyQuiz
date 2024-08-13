@@ -3,6 +3,8 @@ package com.example.myquizmy.Game;
 import android.graphics.Color;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -93,6 +95,7 @@ public class GameFragment extends Fragment implements View.OnClickListener {
     private void finishQuiz() {
         // Calculate money won based on the number of correct answers
         double moneyWon;
+        Log.d("huigtyu", "finishQuiz: "+Score);
         if (Score == 10) { // All questions are correct
             moneyWon = 8.0;
         } else if (Score >= 8) { // 8 or more questions are correct
