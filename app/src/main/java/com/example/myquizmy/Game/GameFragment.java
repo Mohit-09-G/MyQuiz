@@ -126,19 +126,16 @@ public class GameFragment extends Fragment implements View.OnClickListener {
                 .addToBackStack(null)
                 .commit();
     }
-
     private void saveGameDetails(int correctAnswers, double moneyWon) {
         String gameName = "Quiz Game";
         double moneySpent = 10.0;
-        String date = java.text.DateFormat.getDateTimeInstance().format(new java.util.Date());
+        String date = "12/08/2024";
         String ids = "UniqueGameId";
-
         boolean isInserted = testDatabase.insertGameDetails(user_phone, gameName, moneySpent, moneyWon,date, ids);
         if (!isInserted) {
 
         }
     }
-
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.next_que) {

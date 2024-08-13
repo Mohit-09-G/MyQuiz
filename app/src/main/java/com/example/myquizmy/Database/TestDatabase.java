@@ -18,10 +18,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TestDatabase extends SQLiteOpenHelper {
-    public static final String DATABASE_NAME = "Sign.db1";
+    public static final String DATABASE_NAME = "Sign.db2";
     private static final String TABLE_NAME = "UnifiedData";
     private static final String TABLE_NAME2 = "table2";
-    private static final String TABLE_NAME3 = "GameDetails";
+    private static final String TABLE_NAME3 = "GameDetailss";
 
     private static final String COL_PHONE = "phone";
     private static final String COL_NAME = "name";
@@ -94,8 +94,8 @@ public class TestDatabase extends SQLiteOpenHelper {
         String createTableSQL3 = "CREATE TABLE " + TABLE_NAME3 + " (" +
                 COL_PHONE + " TEXT, " +
                 COL_GAME_NAME + " TEXT, " +
-                COL_MONEY_SPENT + " REAL, " +
-                COL_MONEY_WON+"TEXT,"+
+                COL_MONEY_SPENT + " TEXT, " +
+                COL_MONEY_WON  +"TEXT,"+
                 COLUMN_DATE + " TEXT, " +
                 COLUMN_IDS + " TEXT)";
 
@@ -111,9 +111,10 @@ public class TestDatabase extends SQLiteOpenHelper {
         contentValues.put(COL_PHONE, phone);
         contentValues.put(COL_GAME_NAME, gameName);
         contentValues.put(COL_MONEY_SPENT, moneySpent);
-        contentValues.put(COL_MONEY_WON, moneyWon);
+       // contentValues.put(COL_MONEY_WON, moneyWon);
         contentValues.put(COLUMN_DATE, date);
         contentValues.put(COLUMN_IDS, ids);
+        Log.d("nbajjjj", "insertGameDetails: "+moneySpent);
 
         long result = db.insert(TABLE_NAME3, null, contentValues);
         return result != -1;
@@ -125,7 +126,7 @@ public class TestDatabase extends SQLiteOpenHelper {
     }
     public int getTotalMoneyWon(String phone) {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT SUM(" + COL_MONEY_SPENT + ") FROM " + TABLE_NAME3 + " WHERE " + COL_PHONE + "=?", new String[]{phone});
+        Cursor cursor = db.rawQuery("SELECT SUM(" + COL_MONEY_WON + ") FROM " + TABLE_NAME3 + " WHERE " + COL_PHONE + "=?", new String[]{phone});
         int totalMoneyWon = 0;
         if (cursor.moveToFirst()) {
             totalMoneyWon = cursor.getInt(0);
@@ -166,7 +167,26 @@ public class TestDatabase extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+    public Double getuSERTotalMoneySpent(String phone) {
+        SQLiteDatabase db = this.getReadableDatabase();
+       // Cursor cursor = db.rawQuery("SELECT SUM(" + COL_MONEY_SPENT + ") FROM " + TABLE_NAME3 + " WHERE " + COL_PHONE + "=?", new String[]{phone});
+       Cursor cursor = db.query(TABLE_NAME3,
+                new String[]{COL_MONEY_SPENT},
+                COL_PHONE + " = ?", new String[]{phone}, null, null, null);
+        Double totalMoneySpent = 0.00;
+        if (cursor != null && cursor.moveToFirst()) {
+       // if (cursor.moveToFirst()) {
+            totalMoneySpent=Double.parseDouble(cursor.getString(cursor.getColumnIndexOrThrow(COL_MONEY_SPENT)));
+            Log.d("khguytgyuk", "getuSERTotalMoneySpent: "+String.valueOf(totalMoneySpent));
 
+        //}
+        cursor.close();
+
+    }
+        else {
+            Log.d("khguytgyukelse", "getuSERTotalMoneySpent: "+String.valueOf(totalMoneySpent));
+
+        }return totalMoneySpent;}
 
     public UserProfile getUserDetails(String phone) {
         SQLiteDatabase db = this.getReadableDatabase();

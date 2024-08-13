@@ -383,20 +383,20 @@ public class ProfileFragment extends Fragment {
         }
         return str;
     }
-    private void loadGameDetails(View view) {
+    public void loadGameDetails(View view) {
 
-        double totalMoneyWon = testDatabase.getTotalMoneyWon(user_phone);
-        double totalMoneySpent = testDatabase.getTotalMoneySpent(user_phone);
+//        double totalMoneyWon = testDatabase.getTotalMoneyWon(user_phone);
+        double totalMoneySpent = testDatabase.getuSERTotalMoneySpent(user_phone);
         int totalGamesPlayed = testDatabase.getTotalGamesPlayed(user_phone);
 
 
         TextView textTotalMoneyWon = view.findViewById(R.id.textTotalMoneyWonValue);
         TextView textTotalMoneySpent = view.findViewById(R.id.textTotalMoneySpentValue);
         TextView textTotalGamePlay = view.findViewById(R.id.textTotalGamePlayValue);
+        Log.d("khguytgyuk", "getuSERTotalMoneySpent: "+String.valueOf(totalMoneySpent));
 
-
-        textTotalMoneyWon.setText(" Rs " + totalMoneyWon);
-        textTotalMoneySpent.setText("Rs " + totalMoneySpent);
+        //textTotalMoneyWon.setText(" Rs " + totalMoneyWon);
+        textTotalMoneySpent.setText("Rs " + String.valueOf(totalMoneySpent));
         textTotalGamePlay.setText("" + totalGamesPlayed);
     }
 
