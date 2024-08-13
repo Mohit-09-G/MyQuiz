@@ -120,7 +120,7 @@
                     android:textSize="18sp"
                     android:textColor="@color/red"
                     android:layout_marginRight="40dp"
-                    android:layout_marginLeft="300dp"
+                    android:layout_marginLeft="270dp"
                     />
 
                 <Button

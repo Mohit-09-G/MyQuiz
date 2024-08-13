@@ -61,11 +61,19 @@ public class QuizFragment extends Fragment {
             }
         });
 
-
         buttonOne.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 recyclerView.setVisibility(View.VISIBLE);
+
+
+                View lineOne = view.findViewById(R.id.line_one);
+                lineOne.setVisibility(View.VISIBLE);
+                lineOne.setBackgroundColor(getResources().getColor(R.color.Medium_green));
+
+
+                View lineTwo = view.findViewById(R.id.line_two);
+                lineTwo.setVisibility(View.GONE);
             }
         });
 
@@ -73,8 +81,18 @@ public class QuizFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 recyclerView.setVisibility(View.GONE);
+
+
+                View lineTwo = view.findViewById(R.id.line_two);
+                lineTwo.setVisibility(View.VISIBLE);
+                lineTwo.setBackgroundColor(getResources().getColor(R.color.Medium_green));
+
+
+                View lineOne = view.findViewById(R.id.line_one);
+                lineOne.setVisibility(View.GONE);
             }
         });
+
 
         return view;
     }

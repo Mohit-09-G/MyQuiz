@@ -6,8 +6,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
+import android.content.BroadcastReceiver;
+import android.content.IntentFilter;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.ConnectivityManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -16,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.myquizmy.Database.TestDatabase;
+import com.example.myquizmy.Internet.Connection_Internet;
 import com.example.myquizmy.Profile.ProfileFragment;
 import com.example.myquizmy.Profile.UserProfile;
 import com.example.myquizmy.Referral.RefralFragment;
@@ -36,6 +41,9 @@ public class MainActivity extends AppCompatActivity {
     private SessionManager sessionManager;
     private String user_phone;
     private static final String KEY_USER_PHONE = "userPhone";
+
+    //Internet
+    BroadcastReceiver broadcastReceiver;
 
     private WalletFragment walletFragment = new WalletFragment();
     private HomeFragment homeFragment = new HomeFragment();
@@ -75,16 +83,24 @@ public class MainActivity extends AppCompatActivity {
         toolbarHome = findViewById(R.id.toolbarhoome);
 
 
-        //uiManager = new UIManager(toolbar, toolbarHome, bottomNavigationView);
+        broadcastReceiver =new Connection_Internet();
+        registerNetworkBroadcast();
+        IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(broadcastReceiver, filter);
 
-        // Set up ActionBar and Drawer Toggle
+
+
+
+
+
+
         setSupportActionBar(findViewById(R.id.toolbar));
         toggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.drawer_open, R.string.drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        // Get references to the Toolbar icons
+
         leftIcon = findViewById(R.id.left_icon);
         rightIcon = findViewById(R.id.right_icon);
 
@@ -104,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // Load HomeFragment by default
+
         loadFragment(homeFragment);
 
         // Bottom Navigation View Listener
@@ -166,10 +182,29 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // Display user data
+
         displayUserData();
     }
 
+    protected void registerNetworkBroadcast(){
+        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.N){
+            registerReceiver(broadcastReceiver,new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
+        }
+    }
+    protected void unregisterNetwork(){
+        try{
+            unregisterReceiver(broadcastReceiver);
+        }catch (IllegalArgumentException e){
+            e.printStackTrace();
+
+        }
+    }
+
+    protected void onDestroy() {
+
+        super.onDestroy();
+        unregisterNetwork();
+    }
     private void loadFragment(Fragment fragment) {
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container, fragment)
@@ -197,7 +232,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void displayUserData() {
-        // Retrieve the phone number from the session
         String phone = sessionManager.getUserDetails().get(KEY_USER_PHONE);
 
         if (phone != null && !phone.isEmpty()) {
@@ -215,20 +249,25 @@ public class MainActivity extends AppCompatActivity {
 
                 if (user.getImage() != null) {
                     try {
-                        // Assuming user.getImage() returns a URI or file path
-                        Bitmap bitmap = BitmapFactory.decodeFile(user.getImage().toString());
+                        byte[] imageBytes = user.getImage().getNinePatchChunk();
+                        Bitmap bitmap = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
+
                         profileImageView.setImageBitmap(bitmap);
+                        leftIcon.setImageBitmap(bitmap);
                     } catch (Exception e) {
                         e.printStackTrace();
-                        // Set a default image if there's an error
+
                         profileImageView.setImageResource(R.drawable.mainlogo);
+                        leftIcon.setImageResource(R.drawable.mainlogo);
                     }
                 } else {
-
                     profileImageView.setImageResource(R.drawable.mainlogo);
+                    leftIcon.setImageResource(R.drawable.mainlogo);
                 }
             }
         }
     }
+
+
 
 }

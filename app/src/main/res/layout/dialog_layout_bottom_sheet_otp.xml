@@ -1,32 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
+    android:background="@color/more_dark_green"
+    android:layout_margin="10dp"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="5dp">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@drawable/text_background"
-        >
+        android:background="@color/more_dark_green">
 
         <RelativeLayout
             android:background="@color/white"
-            android:layout_marginHorizontal="10dp"
-            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <ScrollView
                 android:fillViewport="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <RelativeLayout
                     android:id="@+id/rel_login"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true">
+
                     <RelativeLayout
                         android:orientation="horizontal"
                         android:id="@id/txt_login"
@@ -45,6 +49,7 @@
                             android:layout_marginBottom="6dp"
                             android:text="Otp verification"
                             android:textColor="@color/black" />
+
                         <ImageView
                             android:layout_alignParentEnd="true"
                             android:layout_gravity="end"
@@ -52,8 +57,7 @@
                             android:layout_width="22dp"
                             android:layout_height="22dp"
                             android:elevation="2dp"
-                            android:src="@drawable/arrow_back"
-                            />
+                            android:src="@drawable/arrow_back" />
 
                     </RelativeLayout>
 
@@ -78,7 +82,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:textColor="@color/black"
+                                android:textColor="@color/more_dark_green"
                                 app:height="40dp"
                                 app:width="40dp"
                                 app:length="6"
@@ -86,15 +90,11 @@
                                 app:box_margin="3dp"
                                 android:tooltipText=""
                                 app:bar_height="1dp"
+                                android:background="@color/white"
                                 app:otp_text_size="12dp"
                                 app:bar_inactive_color="@color/black"
                                 app:bar_active_color="@color/black"
-                                app:bar_enabled="true"
-                                >
-
-                            </in.aabhasjindal.otptextview.OtpTextView>
-
-
+                                app:bar_enabled="true" />
                         </LinearLayout>
 
                         <TextView
@@ -108,18 +108,20 @@
                             android:textColor="@color/black"
                             android:textSize="8sp"
                             android:visibility="gone" />
+
                         <LinearLayout
                             android:id="@+id/linTime"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
+
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_margin="4dp"
-                                android:text="please_do_not_share_this_one_time_password_with_anyone"
+                                android:text="Please do not share this one-time password with anyone."
                                 android:textAlignment="center"
-                                android:textSize="5pt" />
+                                android:textSize="12sp" />
 
                             <LinearLayout
                                 android:id="@+id/lnr_otptime"
@@ -147,7 +149,6 @@
                                         android:text="Time Remaining" />
 
                                     <TextView
-
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:gravity="center"
@@ -159,30 +160,32 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:orientation="horizontal">
+
                                         <TextView
                                             android:id="@+id/tv_minutes"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:gravity="center"
-                                            android:text=" 00 "
-                                            android:textSize="7dp"
-                                            />
+                                            android:text="00"
+                                            android:textSize="14sp" />
+
                                         <TextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:gravity="center"
-                                            android:padding="3sp"
+                                            android:padding="3dp"
                                             android:text=":"
                                             android:textColor="@color/black" />
+
                                         <TextView
                                             android:id="@+id/tv_second"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:gravity="center"
-                                            android:text=" 00 "
-                                            />
-                                    </LinearLayout>
+                                            android:text="00"
+                                            android:textSize="14sp" />
 
+                                    </LinearLayout>
 
                                 </LinearLayout>
 
@@ -204,21 +207,18 @@
                                     android:text="Resend OTP"
                                     android:textAlignment="center"
                                     android:textAllCaps="false"
-
                                     android:textSize="8pt"
                                     android:visibility="gone" />
                             </LinearLayout>
                         </LinearLayout>
 
-
-
-
                         <Button
-                            android:backgroundTint="@color/black"
+                            android:backgroundTint="@color/more_dark_green"
                             android:id="@+id/btn_submit"
                             android:layout_width="100dp"
                             android:layout_gravity="center_horizontal"
                             android:text="submit"
+                            android:textColor="@color/white"
                             android:layout_height="wrap_content"
                             android:layout_margin="4dp"
                             android:textAllCaps="false" />
@@ -239,11 +239,9 @@
                                 android:layout_marginTop="20dp"
                                 android:text="please_do_not_share_this_one_time_password_with_anyone"
                                 android:textAlignment="center"
-                                android:textColor="@color/black"
-                                />
+                                android:textColor="@color/black" />
 
                             <TextView
-
                                 android:layout_margin="3dp"
                                 android:id="@+id/btn_OtpResend"
                                 android:layout_width="wrap_content"
@@ -260,10 +258,7 @@
 
                         </LinearLayout>
 
-
                     </LinearLayout>
-
-
 
                 </RelativeLayout>
 
@@ -271,6 +266,6 @@
 
         </RelativeLayout>
 
-    </LinearLayout>
+    </RelativeLayout>
 
-</LinearLayout>
+</androidx.cardview.widget.CardView>

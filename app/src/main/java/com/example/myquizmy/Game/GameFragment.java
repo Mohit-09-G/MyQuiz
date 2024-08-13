@@ -64,7 +64,7 @@ public class GameFragment extends Fragment implements View.OnClickListener {
         next.setOnClickListener(this);
         Submit.setOnClickListener(this);
 
-        // Make the Submit button invisible initially
+
         Submit.setVisibility(View.GONE);
 
         return view;
@@ -93,12 +93,12 @@ public class GameFragment extends Fragment implements View.OnClickListener {
     }
 
     private void finishQuiz() {
-        // Calculate money won based on the number of correct answers
+
         double moneyWon;
         Log.d("huigtyu", "finishQuiz: "+Score);
-        if (Score == 10) { // All questions are correct
+        if (Score == 10) {
             moneyWon = 8.0;
-        } else if (Score >= 8) { // 8 or more questions are correct
+        } else if (Score >= 8) {
             moneyWon = 5.0;
         } else {
             moneyWon = 0.0;

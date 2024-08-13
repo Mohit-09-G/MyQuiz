@@ -32,7 +32,7 @@ public class Withdrawl_Wallet_Fragment extends Fragment {
     private EditText widrwaledit;
 
     public Withdrawl_Wallet_Fragment() {
-        // Required empty public constructor
+
     }
 
     @SuppressLint("MissingInflatedId")
@@ -140,13 +140,7 @@ public class Withdrawl_Wallet_Fragment extends Fragment {
         UserProfile userProfile = testDatabase.getUserDetails(user_phone);
         if (userProfile != null) {
             double newBalance = userProfile.getBankBalance();
-            // Perform any logic to calculate or update the balance here
-            // For example, if you're adding or subtracting from the balance:
 
-            // Assuming some operation on the balance, e.g., a deposit or withdrawal:
-            // double updatedBalance = newBalance + someAmount;
-
-            // Update the balance in the database
             testDatabase.updateBankBalance(user_phone, newBalance);
         }
     }

@@ -386,7 +386,7 @@ public class ProfileFragment extends Fragment {
     public void loadGameDetails(View view) {
 
 //        double totalMoneyWon = testDatabase.getTotalMoneyWon(user_phone);
-        double totalMoneyWon = testDatabase.getuSERTotalWonSpent(user_phone);
+        double totalMoneyWon = testDatabase.getuSERTotalMoneyWon(user_phone);
         double totalMoneySpent = testDatabase.getuSERTotalMoneySpent(user_phone);
         int totalGamesPlayed = testDatabase.getTotalGamesPlayed(user_phone);
 

@@ -2,10 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/white"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".QuizFragment">
-
     <LinearLayout
         android:id="@+id/buttongroup"
         android:backgroundTint="@color/white"
@@ -15,29 +15,62 @@
         android:padding="0dp"
         android:gravity="center">
 
-        <Button
-            android:id="@+id/button_one"
+        <LinearLayout
+            android:id="@+id/button_one_container"
             android:layout_width="0dp"
-            android:textSize="12sp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textColor="@color/black"
-            android:text="UPCOMING QUIZZES"
-            android:textStyle="bold"
-            android:background="?attr/selectableItemBackground" />
+            android:orientation="vertical"
+            android:gravity="center">
 
-        <Button
-            android:id="@+id/button_two"
+            <Button
+                android:id="@+id/button_one"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="@color/black"
+                android:text="UPCOMING QUIZZES"
+                android:textStyle="bold"
+                android:background="?attr/selectableItemBackground"
+                android:layout_gravity="center"/>
+
+            <View
+                android:id="@+id/line_one"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:visibility="gone"
+                android:background="@color/black"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/button_two_container"
             android:layout_width="0dp"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            android:textColor="@color/black"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="COMPLETED QUIZZES"
-            android:background="?attr/selectableItemBackground" />
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/button_two"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="@color/black"
+                android:text="COMPLETED QUIZZES"
+                android:textStyle="bold"
+                android:background="?attr/selectableItemBackground"
+                android:layout_gravity="center"/>
+
+            <View
+                android:id="@+id/line_two"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:visibility="gone"
+                android:background="@color/black"/>
+        </LinearLayout>
 
     </LinearLayout>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/home_recycleview"

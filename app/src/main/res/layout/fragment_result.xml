@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Game.ResultFragment">
 
@@ -36,11 +37,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/resulttxt_txt1"
-            android:layout_marginTop="5dp"
-            android:background="@drawable/button_background"
+            android:layout_marginTop="8dp"
+            android:padding="6dp"
+            android:background="@color/white"
             android:text="06/08/2024 02:45pm"
-            android:textColor="@color/red"
-            android:textSize="10sp" />
+            android:textColor="@color/Medium_green"
+            android:textSize="12sp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:elevation="2dp" />
+
 
         <RelativeLayout
             android:layout_width="wrap_content"

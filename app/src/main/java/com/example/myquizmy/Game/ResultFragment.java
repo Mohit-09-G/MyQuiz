@@ -37,10 +37,10 @@ public class ResultFragment extends Fragment {
         correctAnswersTextView = view.findViewById(R.id.right);
         wrongAnswersTextView = view.findViewById(R.id.wrong);
         passStatusTextView = view.findViewById(R.id.resulttxt_txt1);
-        moneyWonTextView = view.findViewById(R.id.resulttxt_txt9);  // Assuming you have a TextView for money won
+        moneyWonTextView = view.findViewById(R.id.resulttxt_txt9);
         exitButton = view.findViewById(R.id.exit);
 
-        // Retrieve data from the Bundle
+
         Bundle args = getArguments();
         if (args != null) {
             int totalQuestions = args.getInt("total_questions");

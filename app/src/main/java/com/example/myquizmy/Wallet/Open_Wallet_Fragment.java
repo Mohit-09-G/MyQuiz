@@ -107,22 +107,43 @@ public class Open_Wallet_Fragment extends Fragment {
 
     private void loadTransactions(String section) {
         transactions.clear();
+        switch (section) {
+            case "Add Money":
 
-        if (section.equals("All")) {
-            transactions.addAll(testDatabase.getTransactions(user_phone, "All"));
-            transactions.addAll(testDatabase.getTransactions(user_phone, "Add Money"));
-        } else if (section.equals("All")) {
-            transactions.addAll(testDatabase.getTransactions(user_phone, "Add Money"));
-            transactions.addAll(testDatabase.getTransactions(user_phone, "Withdrawal"));
-            transactions.addAll(testDatabase.getTransactions(user_phone, "Referral"));
-            transactions.addAll(testDatabase.getTransactions(user_phone, "Winning"));
-        } else {
-            transactions.addAll(testDatabase.getTransactions(user_phone, section));
+                transactions.addAll(testDatabase.getTransactions(user_phone, "Add Money"));
+                break;
+            case "All":
+
+                transactions.addAll(testDatabase.getTransactions(user_phone, "Add Money"));
+                transactions.addAll(testDatabase.getTransactions(user_phone, "Withdrawal"));
+                transactions.addAll(testDatabase.getTransactions(user_phone, "Referral"));
+                transactions.addAll(testDatabase.getTransactionsWithGameDetails(user_phone, "Winning"));
+                break;
+            case "Withdrawal":
+
+                transactions.addAll(testDatabase.getTransactions(user_phone, "Withdrawal"));
+                break;
+            case "Referral":
+
+                transactions.addAll(testDatabase.getTransactions(user_phone, "Referral"));
+                break;
+            case "Winning":
+
+                transactions.addAll(testDatabase.getTransactionsWithGameDetails(user_phone, "Winning"));
+                break;
+            default:
+
+                transactions.addAll(testDatabase.getTransactions(user_phone, section));
+                break;
         }
 
-        adapter = new TransactionAdapter(transactions);
-        recyclerView.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
+
+        if (adapter == null) {
+            adapter = new TransactionAdapter(transactions);
+            recyclerView.setAdapter(adapter);
+        } else {
+            adapter.notifyDataSetChanged();
+        }
     }
 
     private void updateBalanceText() {

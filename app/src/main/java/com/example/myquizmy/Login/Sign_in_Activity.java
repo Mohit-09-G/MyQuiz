@@ -2,6 +2,8 @@ package com.example.myquizmy.Login;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.text.TextUtils;
@@ -123,11 +125,9 @@ public class Sign_in_Activity extends AppCompatActivity {
         }
 
     }
-
-    private void openOtpPage() {
-
+    private void openOtpPage()  {
         mcountDownTimer=null;
-        BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(this); // Style here
+        BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(this);
         bottomSheetDialog.setContentView(R.layout.dialog_layout_bottom_sheet_otp);
 //        bottomSheetDialog.getWindow().findViewById(R.id.design_bottom_sheet).setBackgroundResource(android.R.color.transparent);
         Button btn_submit=bottomSheetDialog.findViewById(R.id.btn_submit);

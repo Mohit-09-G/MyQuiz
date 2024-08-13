@@ -35,9 +35,9 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/txt1"
             android:layout_marginTop="5dp"
-            android:background="@drawable/button_background"
+            android:background="@color/white"
             android:text="06/08/2024 02:45pm"
-            android:textColor="@color/red"
+            android:textColor="@color/Medium_green"
             android:textSize="10dp" />
 
         <RelativeLayout

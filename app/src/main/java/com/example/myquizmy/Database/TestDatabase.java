@@ -166,22 +166,24 @@ public class TestDatabase extends SQLiteOpenHelper {
 
         onCreate(db);
     }
-    public Double getuSERTotalWonSpent(String phone) {
+    public Double getuSERTotalMoneyWon(String phone) {
         SQLiteDatabase db = this.getReadableDatabase();
-        // Cursor cursor = db.rawQuery("SELECT SUM(" + COL_MONEY_SPENT + ") FROM " + TABLE_NAME3 + " WHERE " + COL_PHONE + "=?", new String[]{phone});
-        Cursor cursor = db.query(TABLE_NAME3,
-                new String[]{COL_MONEY_WON},
-                COL_PHONE + " = ?", new String[]{phone}, null, null, null);
-        Double totalMoneySpent = 0.00;
+
+        Cursor cursor = db.rawQuery(
+                "SELECT SUM(" + COL_MONEY_WON + ") FROM " + TABLE_NAME3 + " WHERE " + COL_PHONE + "=?",
+                new String[]{phone}
+        );
+
+        Double totalMoneyWon = 0.00;
         if (cursor != null && cursor.moveToFirst()) {
-            // if (cursor.moveToFirst()) {
-            totalMoneySpent=Double.parseDouble(cursor.getString(cursor.getColumnIndexOrThrow(COL_MONEY_WON)));
-            Log.d("khguytgyuk", "getuSERTotalMoneySpent: "+String.valueOf(totalMoneySpent));
-
-            //}
+            totalMoneyWon = cursor.getDouble(0);  // Use getDouble(0) to get the sum directly
+            Log.d("DatabaseQuery", "getuSERTotalMoneyWon: " + totalMoneyWon);
             cursor.close();
+        }
+        return totalMoneyWon;
+    }
 
-        }return totalMoneySpent;}
+
     public Double getuSERTotalMoneySpent(String phone) {
         SQLiteDatabase db = this.getReadableDatabase();
        // Cursor cursor = db.rawQuery("SELECT SUM(" + COL_MONEY_SPENT + ") FROM " + TABLE_NAME3 + " WHERE " + COL_PHONE + "=?", new String[]{phone});
@@ -506,6 +508,35 @@ public class TestDatabase extends SQLiteOpenHelper {
         db.close();
         return result != -1;
     }
+    public List<Transaction> getTransactionsWithGameDetails(String phone, String section) {
+        List<Transaction> transactions = getTransactions(phone, section);
+
+        if ("Winning".equals(section)) {
+
+            Cursor gameDetailsCursor = getGameDetails(phone);
+            if (gameDetailsCursor != null && gameDetailsCursor.moveToFirst()) {
+
+                String gameDetailAmount = gameDetailsCursor.getString(gameDetailsCursor.getColumnIndexOrThrow("moneywon"));
+                String gameDetailDate = gameDetailsCursor.getString(gameDetailsCursor.getColumnIndexOrThrow("date"));
+                String gameDetailPayType = gameDetailsCursor.getString(gameDetailsCursor.getColumnIndexOrThrow("gameName"));
+                String gameDetailIds = gameDetailsCursor.getString(gameDetailsCursor.getColumnIndexOrThrow("IDS"));
+
+                Transaction gameTransaction = new Transaction(
+                        "Money Won",
+                        gameDetailAmount,
+                        gameDetailDate,
+                        gameDetailPayType,
+                        gameDetailIds
+                );
+                transactions.add(gameTransaction);
+
+                gameDetailsCursor.close();
+            }
+        }
+
+        return transactions;
+    }
+
 
 
 
