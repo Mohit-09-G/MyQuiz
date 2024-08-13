@@ -95,7 +95,7 @@ public class TestDatabase extends SQLiteOpenHelper {
                 COL_PHONE + " TEXT, " +
                 COL_GAME_NAME + " TEXT, " +
                 COL_MONEY_SPENT + " TEXT, " +
-                COL_MONEY_WON  +" TEXT, "+
+                COL_MONEY_WON  + " TEXT, "+
                 COLUMN_DATE + " TEXT, " +
                 COLUMN_IDS + " TEXT)";
 
