@@ -35,7 +35,7 @@ public class Razor_Pay_Activity extends AppCompatActivity implements PaymentResu
             Toast.makeText(this, "Amount not provided", Toast.LENGTH_SHORT).show();
             finish();
             return;
-        }
+        }else{
 
         int amountInPaise;
         try {
@@ -49,7 +49,7 @@ public class Razor_Pay_Activity extends AppCompatActivity implements PaymentResu
         String formattedAmount = "Rs. " + amountString;
         textTotalMoney.setText(formattedAmount);
 
-        startPayment(amountInPaise);
+        startPayment(amountInPaise);}
     }
 
     private void startPayment(int amountInPaise) {
@@ -76,18 +76,18 @@ public class Razor_Pay_Activity extends AppCompatActivity implements PaymentResu
         String userPhone = sessionManager.getUserDetails().get("userPhone");
         UserProfile userProfile = testDatabase.getUserDetails(userPhone);
 
-        if (userProfile != null) {
-            double addedAmount = Double.parseDouble(textTotalMoney.getText().toString().replace("Rs. ", ""));
-            double newBalance = userProfile.getBankBalance() + addedAmount;
-
-
-            boolean isUpdated = testDatabase.updateBankBalance(userPhone, newBalance);
-
-            if (isUpdated) {
-                Toast.makeText(this, "Payment Successful and Wallet Updated: " + razorpayPaymentID, Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(this, "Payment Successful but Wallet Update Failed", Toast.LENGTH_SHORT).show();
-            }
+//        if (userProfile != null) {
+//            double addedAmount = Double.parseDouble(textTotalMoney.getText().toString().replace("Rs. ", ""));
+//            double newBalance = userProfile.getBankBalance() + addedAmount;
+//
+//
+//            boolean isUpdated = testDatabase.updateBankBalance(userPhone, newBalance);
+//
+//            if (isUpdated) {
+//                Toast.makeText(this, "Payment Successful and Wallet Updated: " + razorpayPaymentID, Toast.LENGTH_SHORT).show();
+//            } else {
+//                Toast.makeText(this, "Payment Successful but Wallet Update Failed", Toast.LENGTH_SHORT).show();
+//            }
 
             // Optionally navigate to WalletFragment and pass user details
             Intent intent = new Intent(this, WalletFragment.class);
@@ -96,9 +96,9 @@ public class Razor_Pay_Activity extends AppCompatActivity implements PaymentResu
             intent.putExtra("user_phone", userPhone); // Pass user phone
             startActivity(intent);
             finish();
-        } else {
-            Toast.makeText(this, "User not found", Toast.LENGTH_SHORT).show();
-        }
+//        } else {
+//            Toast.makeText(this, "User not found", Toast.LENGTH_SHORT).show();
+//        }
     }
 
     @Override

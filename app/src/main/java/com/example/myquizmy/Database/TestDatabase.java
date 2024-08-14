@@ -464,8 +464,8 @@ public class TestDatabase extends SQLiteOpenHelper {
 //            if (!section.equals("All")) {
 //                query += " AND type = ?";
 //            }
-
-            cursor = db.rawQuery(query, section.equals("All") ? new String[]{phone} : new String[]{phone, section});
+            cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME2 + " WHERE " + COL_PHONE + "=?", new String[]{phone});
+           // cursor = db.rawQuery(query, section.equals("All") ? new String[]{phone} : new String[]{phone, section});
 
             if (cursor != null && cursor.moveToFirst()) {
                 do {
@@ -474,7 +474,8 @@ public class TestDatabase extends SQLiteOpenHelper {
                     String date = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_DATE));
                     String PAYTYPE = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_PAY_TYPE));
                     String IDS = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_IDS));
-                    transactions.add(new Transaction(type, amount, date,PAYTYPE,IDS));
+                    if(section.equalsIgnoreCase(type)){
+                    transactions.add(new Transaction(type, amount, date,PAYTYPE,IDS));}
                 } while (cursor.moveToNext());
             }
         } catch (Exception e) {

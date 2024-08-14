@@ -72,9 +72,7 @@ public class Open_Wallet_Fragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         loadTransactions("All");
-        loadTransactions("Add Money");
-        loadTransactions("Referral");
-        loadTransactions("Winning");
+
 
         updateBalanceText();
         setupClickListeners();
@@ -109,22 +107,18 @@ public class Open_Wallet_Fragment extends Fragment {
         transactions.clear();
         switch (section) {
             case "Add Money":
-
-                transactions.addAll(testDatabase.getTransactions(user_phone, "Add Money"));
+                transactions.addAll(testDatabase.getTransactions(user_phone, "Add"));
                 break;
             case "All":
-
                 transactions.addAll(testDatabase.getTransactions(user_phone, "Add Money"));
                 transactions.addAll(testDatabase.getTransactions(user_phone, "Withdrawal"));
                 transactions.addAll(testDatabase.getTransactions(user_phone, "Referral"));
                 transactions.addAll(testDatabase.getTransactionsWithGameDetails(user_phone, "Winning"));
                 break;
             case "Withdrawal":
-
                 transactions.addAll(testDatabase.getTransactions(user_phone, "Withdrawal"));
                 break;
             case "Referral":
-
                 transactions.addAll(testDatabase.getTransactions(user_phone, "Referral"));
                 break;
             case "Winning":
@@ -141,6 +135,7 @@ public class Open_Wallet_Fragment extends Fragment {
         if (adapter == null) {
             adapter = new TransactionAdapter(transactions);
             recyclerView.setAdapter(adapter);
+            adapter.notifyDataSetChanged();
         } else {
             adapter.notifyDataSetChanged();
         }
